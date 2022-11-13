@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Card Pairs</title>
+    <script src="code.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .game {
+            display: grid;
+            place-items: center;
+            min-height: 100vh;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 1em;
+        }
+
+        body {
+            background-color: #83d2e3;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 2em;
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #game {
+            margin-top:75px;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            grid-gap: 2em;
+        }
+
+        .card {
+            height: 110px;
+            width: 90px;
+            background-color: white;
+            border-radius: 10px;
+            display: grid;
+            place-items: center;
+            cursor: pointer;
+            transition: 0.3s all ease;
+            display: flex;
+        }
+        .card.clicked {
+            background-color: #ffff00;
+        }	
+
+        .card:hover {
+            transform: scale(1.03);
+        }
+
+        .card img {
+            width: 90%;
+            height: 80%;
+            margin-left: 4px;
+            visibility: hidden;
+            transition: 0.3s all ease;
+        }
+
+
+        .card.checked {
+            background-color: lightgreen;
+        }
+
+        .card.clicked img,
+        .card.checked img {
+            visibility: visible;
+        }
+
+        .card.shake {
+            background-color: #f15f5f;
+            animation: shake 0.5s;
+        }
+
+        @keyframes shake {
+            0% {
+                transform: translate(1px, 1px) rotate(0deg);
+            }
+
+            10% {
+                transform: translate(-1px, -2px) rotate(-1deg);
+            }
+
+            20% {
+                transform: translate(-3px, 0px) rotate(1deg);
+            }
+
+            30% {
+                transform: translate(3px, 2px) rotate(0deg);
+            }
+
+            40% {
+                transform: translate(1px, -1px) rotate(1deg);
+            }
+
+            50% {
+                transform: translate(-1px, 2px) rotate(-1deg);
+            }
+
+            60% {
+                transform: translate(-3px, 1px) rotate(0deg);
+            }
+
+            70% {
+                transform: translate(3px, 1px) rotate(-1deg);
+            }
+
+            80% {
+                transform: translate(-1px, -1px) rotate(1deg);
+            }
+
+            90% {
+                transform: translate(1px, 2px) rotate(0deg);
+            }
+
+            100% {
+                transform: translate(1px, -2px) rotate(-1deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>JavaScript Pair Game</h1>
+        <h2>Click any card to begin</h2>
+        <div id="crono">
+            <span id="horas">00</span>:<span id="minutos">00</span>:<span id="segundos">00</span>
+        </div>
+    </header>
+    <main>
+        <div id="game">
+        </div>
+    </main>
+</body>
+</html>
